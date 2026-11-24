@@ -1,1258 +1,1651 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Soujanya Pasumarthi — AI Engineer and Data Scientist portfolio showcasing machine learning, generative AI, RAG, and agentic AI projects.">
-<title>Soujanya Pasumarthi | AI Engineer & Data Scientist</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-<style>
-:root {
-  --bg: #07111f;
-  --panel: #0d1b2d;
-  --panel2: #102238;
-  --text: #edf5ff;
-  --muted: #a6b7cc;
-  --line: rgba(195,220,255,.14);
-  --cyan: #5ee7ef;
-  --blue: #78aaff;
-  --violet: #b8a2ff;
-  --green: #8ee6bd;
-  --max: 1160px;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  background:
-    radial-gradient(
-      ellipse at 8% 0%,
-      rgba(51,139,190,.2),
-      transparent 30%
-    ),
-    radial-gradient(
-      ellipse at 95% 8%,
-      rgba(128,92,218,.18),
-      transparent 28%
-    ),
-    var(--bg);
-  color: var(--text);
-  font-family: 'DM Sans', sans-serif;
-  line-height: 1.7;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.container {
-  width: min(var(--max), calc(100% - 36px));
-  margin: auto;
-}
-
-.nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 22px 0;
-  border-bottom: 1px solid var(--line);
-}
-
-.brand {
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 700;
-  letter-spacing: .03em;
-}
-
-.brand span {
-  color: var(--cyan);
-}
-
-.navlinks {
-  display: flex;
-  gap: 22px;
-  flex-wrap: wrap;
-  color: var(--muted);
-  font-size: 14px;
-}
-
-.navlinks a:hover {
-  color: var(--cyan);
-}
-
-.hero {
-  padding: 84px 0 76px;
-  display: grid;
-  grid-template-columns: 1.35fr .65fr;
-  gap: 36px;
-  align-items: center;
-}
-
-.eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  border: 1px solid rgba(94,231,239,.25);
-  background: rgba(94,231,239,.07);
-  border-radius: 999px;
-  padding: 7px 13px;
-  color: #bdf9fb;
-  font-size: 12px;
-  letter-spacing: .13em;
-  text-transform: uppercase;
-  font-weight: 700;
-}
-
-.dot {
-  width: 7px;
-  height: 7px;
-  background: var(--green);
-  border-radius: 50%;
-  box-shadow: 0 0 12px var(--green);
-}
-
-h1, h2, h3 {
-  font-family: 'Space Grotesk', sans-serif;
-  line-height: 1.15;
-  margin-top: 0;
-}
-
-h1 {
-  font-size: clamp(42px, 6vw, 72px);
-  letter-spacing: -.055em;
-  margin: 22px 0 10px;
-}
-
-h1 .accent {
-  background: linear-gradient(
-    90deg,
-    var(--cyan),
-    var(--blue),
-    var(--violet)
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.role {
-  font-size: clamp(18px, 2.3vw, 25px);
-  font-weight: 600;
-  color: #cfe7ff;
-}
-
-.hero p {
-  max-width: 720px;
-  color: var(--muted);
-  font-size: 17px;
-}
-
-.actions {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-top: 28px;
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px 18px;
-  border-radius: 13px;
-  font-weight: 700;
-  font-size: 14px;
-  border: 1px solid var(--line);
-  transition: .2s;
-}
-
-.btn.primary {
-  background: linear-gradient(
-    120deg,
-    var(--cyan),
-    #8bc8ff
-  );
-  color: #061322;
-  border: 0;
-}
-
-.btn:hover {
-  transform: translateY(-2px);
-}
-
-.profile-card,
-.panel {
-  background: linear-gradient(
-    145deg,
-    rgba(16,34,56,.94),
-    rgba(8,22,38,.92)
-  );
-  border: 1px solid var(--line);
-  border-radius: 23px;
-  box-shadow: 0 22px 70px rgba(0,0,0,.2);
-}
-
-.profile-card {
-  padding: 26px;
-}
-
-.card-kicker {
-  font-size: 11px;
-  letter-spacing: .16em;
-  text-transform: uppercase;
-  color: var(--cyan);
-  font-weight: 700;
-}
-
-.profile-card h3 {
-  font-size: 22px;
-  margin: 8px 0 18px;
-}
-
-.fact {
-  padding: 13px 0;
-  border-top: 1px solid var(--line);
-}
-
-.fact b {
-  display: block;
-  font-size: 13px;
-  color: #f3f8ff;
-}
-
-.fact span {
-  display: block;
-  font-size: 13px;
-  color: var(--muted);
-  margin-top: 3px;
-}
-
-.section {
-  padding: 68px 0;
-}
-
-.section-head {
-  max-width: 750px;
-  margin-bottom: 28px;
-}
-
-.section-head .kicker {
-  color: var(--cyan);
-  text-transform: uppercase;
-  letter-spacing: .18em;
-  font-size: 12px;
-  font-weight: 700;
-}
-
-.section-head h2 {
-  font-size: clamp(30px, 4vw, 44px);
-  letter-spacing: -.04em;
-  margin: 10px 0;
-}
-
-.section-head p {
-  color: var(--muted);
-  margin: 0;
-}
-
-.two {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 22px;
-}
-
-.panel {
-  padding: 27px;
-}
-
-.panel h3 {
-  font-size: 23px;
-  margin: 9px 0 14px;
-}
-
-.panel p {
-  color: var(--muted);
-  margin: 0 0 12px;
-}
-
-.value {
-  background:
-    linear-gradient(
-      135deg,
-      rgba(94,231,239,.08),
-      rgba(184,162,255,.09)
-    ),
-    var(--panel);
-}
-
-.skills {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0,1fr));
-  gap: 10px;
-}
-
-.skill {
-  padding: 12px 13px;
-  border-radius: 12px;
-  background: rgba(4,14,26,.55);
-  border: 1px solid var(--line);
-  font-size: 13px;
-  color: #d7e8fc;
-}
-
-.projects {
-  background: rgba(255,255,255,.018);
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-}
-
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0,1fr));
-  gap: 18px;
-}
-
-.project {
-  padding: 25px;
-  border-radius: 20px;
-  background: rgba(10,26,44,.88);
-  border: 1px solid var(--line);
-  display: flex;
-  flex-direction: column;
-  min-height: 310px;
-  transition: .2s;
-}
-
-.project:hover {
-  transform: translateY(-4px);
-  border-color: rgba(94,231,239,.4);
-}
-
-.project-top {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  align-items: center;
-  margin-bottom: 17px;
-}
-
-.project-icon {
-  width: 45px;
-  height: 45px;
-  display: grid;
-  place-items: center;
-  border-radius: 14px;
-  background: rgba(94,231,239,.1);
-  color: var(--cyan);
-  font-size: 21px;
-}
-
-.tag {
-  font-size: 10px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  padding: 6px 9px;
-  color: #c7d8eb;
-}
-
-.project h3 {
-  font-size: 22px;
-  margin: 0 0 10px;
-}
-
-.project p {
-  font-size: 14px;
-  color: var(--muted);
-  margin: 0 0 14px;
-}
-
-.chips {
-  display: flex;
-  gap: 7px;
-  flex-wrap: wrap;
-  margin: 0 0 18px;
-}
-
-.chip {
-  font-size: 11px;
-  border-radius: 999px;
-  padding: 5px 9px;
-  color: #c9f7fa;
-  border: 1px solid rgba(94,231,239,.17);
-  background: rgba(94,231,239,.06);
-}
-
-.project .btn {
-  margin-top: 18px;
-  align-self: flex-start;
-}
-
-.project-insights {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0,1fr));
-  gap: 10px;
-  margin: 8px 0 2px;
-}
-
-.insight {
-  padding: 13px;
-  border: 1px solid rgba(94,231,239,.16);
-  border-radius: 13px;
-  background: rgba(3,13,25,.5);
-}
-
-.insight b {
-  display: block;
-  color: var(--cyan);
-  font-size: 12px;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  margin-bottom: 5px;
-}
-
-.insight span {
-  display: block;
-  color: var(--muted);
-  font-size: 12px;
-  line-height: 1.55;
-}
-
-.featured {
-  border-color: rgba(94,231,239,.34);
-  background: linear-gradient(
-    145deg,
-    rgba(18,51,70,.95),
-    rgba(10,26,44,.96)
-  );
-}
-
-.featured .project-icon {
-  background: linear-gradient(
-    135deg,
-    var(--cyan),
-    var(--blue)
-  );
-  color: #061322;
-}
-
-.career-contact {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-}
-
-.contact-list {
-  margin-top: 15px;
-}
-
-.contact-row {
-  display: grid;
-  grid-template-columns: 95px 1fr;
-  gap: 12px;
-  padding: 10px 0;
-  border-bottom: 1px solid var(--line);
-  font-size: 14px;
-}
-
-.contact-row b {
-  color: #f3f8ff;
-}
-
-.contact-row a {
-  color: var(--cyan);
-  overflow-wrap: anywhere;
-}
-
-.contact-row span {
-  color: var(--muted);
-}
-
-footer {
-  border-top: 1px solid var(--line);
-  padding: 25px 0 38px;
-  text-align: center;
-  color: var(--muted);
-  font-size: 13px;
-}
-
-@media (max-width: 850px) {
-  .hero,
-  .two,
-  .career-contact {
-    grid-template-columns: 1fr;
-  }
-
-  .project-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .skills {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .hero {
-    padding-top: 58px;
-  }
-
-  .nav {
-    align-items: flex-start;
-    gap: 15px;
-    flex-direction: column;
-  }
-}
-
-@media (max-width: 570px) {
-  .project-insights {
-    grid-template-columns: 1fr;
-  }
-
-  .container {
-    width: calc(100% - 24px);
-  }
-
-  .project-grid,
-  .skills {
-    grid-template-columns: 1fr;
-  }
-
-  .section {
-    padding: 50px 0;
-  }
-
-  .panel {
-    padding: 21px;
-  }
-
-  .contact-row {
-    grid-template-columns: 75px 1fr;
-  }
-
-  .navlinks {
-    gap: 13px;
-  }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Soujanya Pasumarthi — AI Engineer and Data Scientist portfolio showcasing machine learning, generative AI, RAG, and Explainable AI.">
+
+  <title>Soujanya Pasumarthi | AI Engineer & Data Scientist</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ========================================
+       GLOBAL STYLES
+    ======================================== */
+
+    :root {
+      --bg: #07111f;
+      --panel: #0d1b2d;
+      --panel2: #102238;
+      --text: #edf5ff;
+      --muted: #a6b7cc;
+      --line: rgba(195, 220, 255, 0.14);
+      --cyan: #5ee7ef;
+      --blue: #78aaff;
+      --violet: #b8a2ff;
+      --green: #8ee6bd;
+      --max: 1200px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(
+          ellipse at 8% 0%,
+          rgba(51, 139, 190, 0.20),
+          transparent 30%
+        ),
+        radial-gradient(
+          ellipse at 95% 8%,
+          rgba(128, 92, 218, 0.18),
+          transparent 28%
+        ),
+        var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      line-height: 1.75;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a:focus-visible {
+      outline: 2px solid var(--cyan);
+      outline-offset: 4px;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      line-height: 1.3;
+      margin-top: 0;
+    }
+
+    /* ========================================
+       NAVIGATION
+    ======================================== */
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+    }
+
+    .brand span {
+      color: var(--cyan);
+    }
+
+    .navlinks {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .navlinks a {
+      transition: color 0.2s ease;
+    }
+
+    .navlinks a:hover {
+      color: var(--cyan);
+    }
+
+    /* ========================================
+       HERO SECTION
+    ======================================== */
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.65fr);
+      align-items: center;
+      gap: 40px;
+      padding: 80px 0 64px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 14px;
+      border: 1px solid rgba(94, 231, 239, 0.25);
+      background: rgba(94, 231, 239, 0.07);
+      border-radius: 999px;
+      color: #bdf9fb;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      background: var(--green);
+      border-radius: 50%;
+      box-shadow: 0 0 12px var(--green);
+    }
+
+    h1 {
+      font-size: clamp(40px, 5.5vw, 68px);
+      letter-spacing: -0.05em;
+      margin: 24px 0 12px;
+      overflow-wrap: anywhere;
+    }
+
+    h1 .accent {
+      background: linear-gradient(
+        90deg,
+        var(--cyan),
+        var(--blue),
+        var(--violet)
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .role {
+      font-size: clamp(18px, 2.3vw, 24px);
+      font-weight: 600;
+      color: #cfe7ff;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.85;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    /* ========================================
+       BUTTONS
+    ======================================== */
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 12px 20px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 700;
+      text-align: center;
+      transition: 0.2s ease;
+    }
+
+    .btn.primary {
+      background: linear-gradient(
+        120deg,
+        var(--cyan),
+        #8bc8ff
+      );
+      color: #061322;
+      border: none;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 20px rgba(94, 231, 239, 0.12);
+    }
+
+    /* ========================================
+       PROFILE AND INFORMATION PANELS
+    ======================================== */
+
+    .profile-card,
+    .panel {
+      min-width: 0;
+      background: linear-gradient(
+        145deg,
+        rgba(16, 34, 56, 0.94),
+        rgba(8, 22, 38, 0.92)
+      );
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      box-shadow: 0 15px 45px rgba(0, 0, 0, 0.15);
+    }
+
+    .profile-card {
+      padding: 28px;
+    }
+
+    .card-kicker {
+      color: var(--cyan);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .profile-card h3 {
+      font-size: 23px;
+      margin: 0 0 20px;
+    }
+
+    .fact {
+      padding: 15px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .fact:last-child {
+      padding-bottom: 0;
+    }
+
+    .fact b {
+      display: block;
+      font-size: 13px;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .fact span {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    .panel {
+      padding: 30px;
+    }
+
+    .panel h3 {
+      font-size: 23px;
+      margin: 0 0 18px;
+    }
+
+    .panel p {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.8;
+      margin: 0 0 16px;
+    }
+
+    .panel p:last-child {
+      margin-bottom: 0;
+    }
+
+    .panel p b {
+      color: var(--text);
+    }
+
+    .value {
+      background:
+        linear-gradient(
+          135deg,
+          rgba(94, 231, 239, 0.08),
+          rgba(184, 162, 255, 0.09)
+        ),
+        var(--panel);
+    }
+
+    /* ========================================
+       SECTION LAYOUT
+    ======================================== */
+
+    .section {
+      padding: 56px 0;
+    }
+
+    .section-head {
+      max-width: 850px;
+      margin-bottom: 30px;
+    }
+
+    .section-head .kicker {
+      color: var(--cyan);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .section-head h2 {
+      font-size: clamp(28px, 4vw, 42px);
+      letter-spacing: -0.035em;
+      margin: 10px 0 14px;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    .two {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    /* ========================================
+       TECHNICAL SKILLS
+    ======================================== */
+
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .skill {
+      display: flex;
+      align-items: center;
+      min-height: 54px;
+      padding: 14px 16px;
+      background: rgba(4, 14, 26, 0.55);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      color: #d7e8fc;
+      font-size: 14px;
+      line-height: 1.5;
+      transition: 0.2s ease;
+    }
+
+    .skill:hover {
+      border-color: rgba(94, 231, 239, 0.4);
+      background: rgba(94, 231, 239, 0.05);
+    }
+
+    /* ========================================
+       PROJECT CARDS
+    ======================================== */
+
+    .projects {
+      background: rgba(255, 255, 255, 0.018);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .project {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      padding: 28px;
+      gap: 18px;
+      background: rgba(10, 26, 44, 0.88);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      transition: border-color 0.2s ease,
+                  box-shadow 0.2s ease;
+    }
+
+    .project:hover {
+      border-color: rgba(94, 231, 239, 0.45);
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.18);
+    }
+
+    .project-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .project-icon {
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      flex-shrink: 0;
+      border-radius: 12px;
+      background: rgba(94, 231, 239, 0.1);
+      color: var(--cyan);
+      font-size: 22px;
+    }
+
+    .tag {
+      padding: 6px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: #c7d8eb;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .project h3 {
+      font-size: 23px;
+      line-height: 1.35;
+      margin: 0;
+    }
+
+    .project p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    .featured {
+      border-color: rgba(94, 231, 239, 0.30);
+      background: linear-gradient(
+        145deg,
+        rgba(18, 43, 61, 0.95),
+        rgba(10, 26, 44, 0.96)
+      );
+    }
+
+    .featured .project-icon {
+      background: linear-gradient(
+        135deg,
+        var(--cyan),
+        var(--blue)
+      );
+      color: #061322;
+    }
+
+    /* ========================================
+       TECHNOLOGY TAGS
+    ======================================== */
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin: 0;
+    }
+
+    .chip {
+      padding: 5px 10px;
+      border: 1px solid rgba(94, 231, 239, 0.17);
+      border-radius: 999px;
+      background: rgba(94, 231, 239, 0.06);
+      color: #c9f7fa;
+      font-size: 11px;
+      line-height: 1.5;
+    }
+
+    /* ========================================
+       PROJECT INSIGHT SECTIONS
+    ======================================== */
+
+    .project-insights {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .insight {
+      padding: 16px 18px;
+      border: 1px solid rgba(94, 231, 239, 0.14);
+      border-radius: 12px;
+      background: rgba(3, 13, 25, 0.40);
+    }
+
+    .insight b {
+      display: block;
+      color: var(--cyan);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 7px;
+    }
+
+    .insight span {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.75;
+    }
+
+    .project-footer {
+      margin-top: auto;
+      padding-top: 6px;
+    }
+
+    .project-footer .btn {
+      width: 100%;
+    }
+
+    /* ========================================
+       WORKSHOP 5.4 INFOGRAPHIC
+    ======================================== */
+
+    .latest-artifact {
+      grid-column: 1 / -1;
+    }
+
+    .artifact-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 28px;
+      align-items: start;
+    }
+
+    .artifact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      min-width: 0;
+    }
+
+    .artifact-preview {
+      margin: 0;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: rgba(3, 13, 25, 0.45);
+    }
+
+    .artifact-preview a {
+      display: block;
+    }
+
+    .artifact-preview img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      border-radius: 8px;
+      transition: opacity 0.2s ease;
+    }
+
+    .artifact-preview img:hover {
+      opacity: 0.9;
+    }
+
+    .artifact-caption {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.6;
+      text-align: center;
+      margin-top: 12px;
+    }
+
+    .artifact-preview .btn {
+      width: 100%;
+      margin-top: 14px;
+    }
+
+    .latest-artifact .project-insights {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    /* ========================================
+       EXPERIENCE AND EDUCATION
+    ======================================== */
+
+    .education {
+      margin-top: 24px;
+    }
+
+    .panel .chips {
+      margin-top: 20px;
+    }
+
+    /* ========================================
+       CONTACT SECTION
+    ======================================== */
+
+    .career-contact {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .contact-list {
+      margin-top: 16px;
+    }
+
+    .contact-row {
+      display: grid;
+      grid-template-columns: 85px minmax(0, 1fr);
+      gap: 14px;
+      padding: 13px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .contact-row:last-child {
+      border-bottom: none;
+    }
+
+    .contact-row b {
+      color: var(--text);
+    }
+
+    .contact-row span {
+      color: var(--muted);
+      overflow-wrap: anywhere;
+    }
+
+    .contact-row a {
+      color: var(--cyan);
+      overflow-wrap: anywhere;
+    }
+
+    /* ========================================
+       FOOTER
+    ======================================== */
+
+    footer {
+      padding: 28px 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      text-align: center;
+      font-size: 13px;
+    }
+
+    /* ========================================
+       TABLET RESPONSIVE DESIGN
+    ======================================== */
+
+    @media (max-width: 900px) {
+      .container {
+        width: calc(100% - 40px);
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 56px 0 44px;
+      }
+
+      .two,
+      .career-contact {
+        grid-template-columns: 1fr;
+      }
+
+      .skills {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .artifact-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .latest-artifact .project-insights {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .section {
+        padding: 44px 0;
+      }
+
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+    }
+
+    /* ========================================
+       MOBILE RESPONSIVE DESIGN
+    ======================================== */
+
+    @media (max-width: 600px) {
+      .container {
+        width: calc(100% - 28px);
+      }
+
+      .section {
+        padding: 36px 0;
+      }
+
+      .section-head {
+        margin-bottom: 24px;
+      }
+
+      .navlinks {
+        gap: 14px;
+        font-size: 13px;
+      }
+
+      .hero {
+        padding: 40px 0;
+      }
+
+      h1 {
+        font-size: 40px;
+      }
+
+      .profile-card,
+      .panel,
+      .project {
+        padding: 20px;
+      }
+
+      .project {
+        gap: 16px;
+      }
+
+      .project h3 {
+        font-size: 21px;
+      }
+
+      .project-top {
+        flex-wrap: wrap;
+      }
+
+      .skills,
+      .latest-artifact .project-insights {
+        grid-template-columns: 1fr;
+      }
+
+      .artifact-layout {
+        gap: 20px;
+      }
+
+      .contact-row {
+        grid-template-columns: 70px minmax(0, 1fr);
+        gap: 10px;
+      }
+
+      .actions .btn {
+        flex: 1;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      * {
+        transition: none !important;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="container">
+  <!-- ========================================
+       NAVIGATION AND HERO
+  ========================================= -->
 
-  <!-- NAVIGATION -->
-  <nav class="nav">
-    <a class="brand" href="#">
-      <span>SP</span> / PORTFOLIO
-    </a>
-
-    <div class="navlinks">
-      <a href="#about">About</a>
-      <a href="#focus">Expertise</a>
-      <a href="#projects">View Projects</a>
-      <a href="#experience">Experience</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </nav>
-
-  <!-- HERO SECTION -->
-  <header class="hero">
-    <div>
-      <div class="eyebrow">
-        <span class="dot"></span>
-        AI &amp; Analytics Portfolio
-      </div>
-
-      <h1>
-        Soujanya
-        <span class="accent">Pasumarthi</span>
-      </h1>
-
-      <div class="role">
-        AI Engineer · Data Scientist · Generative AI
-      </div>
-
-      <p>
-        I build data-driven and AI-powered solutions
-        that connect enterprise knowledge, predictive
-        insights, and intelligent automation. My
-        experience spans machine learning pipelines,
-        retrieval-augmented generation, semantic search,
-        and AI services designed for real business workflows.
-      </p>
-
-      <div class="actions">
-        <a class="btn primary" href="#projects">
-          Explore Projects ↘
-        </a>
-
-        <a class="btn" href="#contact">
-          Contact Me ↗
-        </a>
-      </div>
-    </div>
-
-    <aside class="profile-card">
-      <div class="card-kicker">
-        Professional Snapshot
-      </div>
-
-      <h3>
-        From predictive models to AI knowledge systems.
-      </h3>
-
-      <div class="fact">
-        <b>Professional focus</b>
-        <span>
-          AI engineering, data science,
-          ML pipelines, and GenAI applications
-        </span>
-      </div>
-
-      <div class="fact">
-        <b>Core strengths</b>
-        <span>
-          Python · RAG · LLMs · Model evaluation ·
-          API development
-        </span>
-      </div>
-
-      <div class="fact">
-        <b>Current learning</b>
-        <span>
-          M.S. in Artificial Intelligence,
-          Indiana Wesleyan University
-        </span>
-      </div>
-
-      <div class="fact">
-        <b>Career direction</b>
-        <span>
-          Building reliable, useful, and
-          scalable intelligent systems
-        </span>
-      </div>
-    </aside>
-  </header>
-
-</div>
-
-<main>
-
-  <!-- ABOUT SECTION -->
-  <section class="section" id="about">
-    <div class="container two">
-
-      <article class="panel">
-        <div class="card-kicker">
-          About Myself
-        </div>
-
-        <h3>
-          Engineering practical AI from data to deployment.
-        </h3>
-
-        <p>
-          I am an AI Engineer and Data Scientist with
-          experience developing machine learning and
-          generative AI solutions for enterprise use cases.
-          My work has included predictive analytics for
-          customer order management and a knowledge platform
-          that helps operations teams find critical
-          information in complex documentation.
-        </p>
-
-        <p>
-          I enjoy connecting technical implementation
-          with a clear user or business need—from preparing
-          data and evaluating models to building retrieval
-          pipelines and exposing AI capabilities through APIs.
-          I am currently pursuing a master's degree in
-          Artificial Intelligence and continuing to deepen
-          my expertise in LLMs, agentic systems, and
-          intelligent applications.
-        </p>
-      </article>
-
-      <article class="panel value">
-        <div class="card-kicker">
-          Personal Value Proposition
-        </div>
-
-        <h3>
-          Technical depth with a business-first mindset.
-        </h3>
-
-        <p>
-          I bring together data science, retrieval-based AI,
-          and application engineering to turn information
-          into usable outcomes. I focus not only on building
-          a model or prototype, but also on evaluation,
-          reliability, integration, and how the solution
-          supports real workflows.
-        </p>
-
-        <p>
-          <b>What makes my approach valuable:</b>
-          I can work across the AI lifecycle—from data
-          preparation and feature engineering to RAG,
-          API delivery, and production monitoring—while
-          keeping the intended business outcome in view.
-        </p>
-      </article>
-
-    </div>
-  </section>
-
-  <!-- SKILLS SECTION -->
-  <section class="section" id="focus">
-    <div class="container">
-
-      <div class="section-head">
-        <div class="kicker">Technical Focus</div>
-
-        <h2>Skills &amp; Focus Areas</h2>
-
-        <p>
-          A snapshot of the tools and methods reflected
-          in my professional experience and current AI learning.
-        </p>
-      </div>
-
-      <div class="skills">
-        <div class="skill">Python · SQL · PySpark</div>
-        <div class="skill">Scikit-learn · XGBoost</div>
-        <div class="skill">Random Forest · Gradient Boosting</div>
-        <div class="skill">PyTorch · TensorFlow</div>
-        <div class="skill">Hugging Face Transformers</div>
-        <div class="skill">LLMs · Prompt Engineering</div>
-        <div class="skill">RAG · LlamaIndex · LangChain</div>
-        <div class="skill">LangGraph · CrewAI</div>
-        <div class="skill">FAISS · Pinecone · ChromaDB</div>
-        <div class="skill">FastAPI · REST APIs</div>
-        <div class="skill">MLflow · Airflow</div>
-        <div class="skill">Docker · Kubernetes</div>
-        <div class="skill">AWS · Azure</div>
-        <div class="skill">Model Evaluation &amp; Drift</div>
-        <div class="skill">Semantic Search</div>
-        <div class="skill">Explainable AI · Responsible AI</div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- PROJECTS SECTION -->
-  <section class="section projects" id="projects">
-    <div class="container">
-
-      <div class="section-head">
-        <div class="kicker">Selected Work</div>
-
-        <h2>View Projects</h2>
-
-        <p>
-          Academic portfolio artifacts exploring machine
-          learning algorithms, neural-network components,
-          large language model training, and Explainable AI,
-          supported by visual explanations, research,
-          and practical experiments.
-        </p>
-      </div>
-
-      <div class="project-grid">
-
-        <!-- ARTIFACT 1 -->
-        <article class="project featured">
-          <div class="project-top">
-            <div class="project-icon">✦</div>
-            <div class="tag">
-              AIML-501 · Visual Artifact
-            </div>
-          </div>
-
-          <h3>
-            Types of Machine Learning Algorithms
-          </h3>
-
-          <p>
-            A visual infographic comparing the main
-            learning approaches, 10 popular algorithms,
-            how they work, and where they are used
-            in real-world applications.
-          </p>
-
-          <div class="chips">
-            <span class="chip">Supervised</span>
-            <span class="chip">Unsupervised</span>
-            <span class="chip">Deep Learning</span>
-            <span class="chip">Use Cases</span>
-          </div>
-
-          <div class="project-insights">
-            <div class="insight">
-              <b>Objective</b>
-              <span>
-                Explain key machine learning algorithm
-                types, how they work, and when to use
-                them in a clear visual framework.
-              </span>
-            </div>
-
-            <div class="insight">
-              <b>Impact / Outcome</b>
-              <span>
-                Make algorithm families easier to compare
-                and connect each approach to practical
-                applications across data, vision,
-                language, and generative AI.
-              </span>
-            </div>
-
-            <div class="insight">
-              <b>Value Proposition</b>
-              <span>
-                Give learners and practitioners a quick
-                reference for understanding core methods
-                and choosing an appropriate starting
-                point for a problem.
-              </span>
-            </div>
-          </div>
-
-          <a class="btn primary"
-             href="machine-learning-algorithms.png"
-             target="_blank"
-             rel="noopener noreferrer">
-            View Infographic ↗
-          </a>
-        </article>
-
-        <!-- ARTIFACT 2 -->
-        <article class="project">
-          <div class="project-top">
-            <div class="project-icon">◎</div>
-            <div class="tag">
-              AIML-501 · Workshop 2.4
-            </div>
-          </div>
-
-          <h3>Neural Network Components</h3>
-
-          <p>
-            A 12-slide academic presentation explaining
-            neural-network architecture, neurons, weights,
-            activation functions, loss functions, and
-            optimization through TensorFlow Playground
-            experiments.
-          </p>
-
-          <div class="chips">
-            <span class="chip">Neural Networks</span>
-            <span class="chip">TensorFlow Playground</span>
-            <span class="chip">Activation Functions</span>
-            <span class="chip">Model Evaluation</span>
-          </div>
-
-          <div class="project-insights">
-            <div class="insight">
-              <b>Objective</b>
-              <span>
-                Explain how neural-network components
-                work together to learn classification
-                patterns.
-              </span>
-            </div>
-
-            <div class="insight">
-              <b>Experiment</b>
-              <span>
-                Explore circle and XOR datasets,
-                feature representations, network
-                configurations, activation functions,
-                and noise.
-              </span>
-            </div>
-
-            <div class="insight">
-              <b>Key Learning</b>
-              <span>
-                Interpret decision boundaries and
-                training/test loss while recognizing
-                the limits of individual exploratory runs.
-              </span>
-            </div>
-          </div>
-
-          <a class="btn primary"
-             href="AIML501_Workshop_2.4_Neural_Network_Components.pdf"
-             target="_blank"
-             rel="noopener noreferrer">
-            View Presentation ↗
-          </a>
-        </article>
-
-        <!-- ARTIFACT 3 -->
-        <article class="project featured">
-          <div class="project-top">
-            <div class="project-icon">✧</div>
-            <div class="tag">
-              AIML-501 · Workshop 3.4
-            </div>
-          </div>
-
-          <h3>
-            Inside the Training of Generative AI
-            Large Language Models
-          </h3>
-
-          <p>
-            An infographic exploring how large language
-            models are developed, the stages of training,
-            and the computational resources, energy,
-            time, and financial considerations involved.
-            It compares publicly available information
-            about GPT-4, Claude, and Meta's Llama models.
-          </p>
-
-          <div class="chips">
-            <span class="chip">Generative AI</span>
-            <span class="chip">LLM Training</span>
-            <span class="chip">GPU Computing</span>
-            <span class="chip">Training Costs</span>
-            <span class="chip">Responsible AI</span>
-          </div>
-
-          <div class="project-insights">
-            <div class="insight">
-              <b>Objective</b>
-              <span>
-                Explain the LLM training lifecycle in
-                a clear, accessible visual format.
-              </span>
-            </div>
-
-            <div class="insight">
-              <b>Research Focus</b>
-              <span>
-                Examine data requirements, computing
-                infrastructure, energy consumption,
-                training time, and estimated costs.
-              </span>
-            </div>
-
-            <div class="insight">
-              <b>Key Learning</b>
-              <span>
-                Understand the resources required to
-                train large-scale AI systems and
-                distinguish public disclosures from
-                industry estimates.
-              </span>
-            </div>
-          </div>
-
-          <a class="btn primary"
-             href="AIML501_Workshop_3.4_LLM_Training_Infographic.png"
-             target="_blank"
-             rel="noopener noreferrer">
-            View Infographic ↗
-          </a>
-        </article>
-
-        <!-- ARTIFACT 4: NEW WORKSHOP 4.4 -->
-        <article class="project featured">
-          <div class="project-top">
-            <div class="project-icon">◈</div>
-            <div class="tag">
-              AIML-501 · Workshop 4.4
-            </div>
-          </div>
-
-          <h3>
-            Explainable AI for Generative AI
-            &amp; Large Language Models
-          </h3>
-
-          <p>
-            A research-informed infographic examining
-            Explainable AI (XAI), transparency,
-            interpretability, validation methods,
-            and performance evaluation for generative
-            AI models such as GPT, Claude, Gemini,
-            and Llama.
-          </p>
-
-          <p>
-            The artifact explores model complexity,
-            hallucinations, bias, explanation limitations,
-            and responsible AI governance. It also
-            demonstrates how human oversight and
-            evidence-based evaluation support safer
-            AI-assisted decisions in healthcare.
-          </p>
-
-          <div class="chips">
-            <span class="chip">Explainable AI</span>
-            <span class="chip">Generative AI</span>
-            <span class="chip">LLM Interpretability</span>
-            <span class="chip">Model Validation</span>
-            <span class="chip">Performance Metrics</span>
-            <span class="chip">Responsible AI</span>
-          </div>
-
-          <div class="project-insights">
-            <div class="insight">
-              <b>Objective</b>
-              <span>
-                Explain the importance of transparency
-                and interpretability in large language
-                models and identify the challenges
-                involved in understanding AI-generated
-                responses.
-              </span>
-            </div>
-
-            <div class="insight">
-              <b>Methods &amp; Evaluation</b>
-              <span>
-                Explore SHAP, LIME, mechanistic
-                interpretability, model cards, factual
-                grounding, expert review, adversarial
-                testing, and task-specific metrics.
-              </span>
-            </div>
-
-            <div class="insight">
-              <b>Key Learning</b>
-              <span>
-                Explainability alone does not guarantee
-                accuracy or fairness. Trustworthy AI
-                requires ongoing validation, transparent
-                documentation, responsible governance,
-                and meaningful human oversight.
-              </span>
-            </div>
-          </div>
-
-          <a class="btn primary"
-             href="AIML501_Workshop_4.4_Explainable_AI_Infographic.png"
-             target="_blank"
-             rel="noopener noreferrer">
-            View Infographic ↗
-          </a>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE & EDUCATION -->
-  <section class="section" id="experience">
-    <div class="container">
-
-      <div class="section-head">
-        <div class="kicker">
-          Professional Snapshot
-        </div>
-
-        <h2>Experience &amp; Education</h2>
-
-        <p>
-          Selected experience summarized from my resume.
-        </p>
-      </div>
-
-      <div class="two">
-
-        <article class="panel">
-          <div class="card-kicker">
-            Jan 2023 – May 2025
-          </div>
-
-          <h3>Generative AI Engineer</h3>
-
-          <p>
-            <b>International SOS / Accenture</b>
-          </p>
-
-          <p>
-            Worked on an AI knowledge platform for
-            emergency response, including RAG pipelines,
-            document ingestion, semantic retrieval,
-            prompt engineering, LLM-powered APIs,
-            retrieval evaluation, and service monitoring.
-          </p>
-
-          <div class="chips">
-            <span class="chip">LlamaIndex</span>
-            <span class="chip">LangChain</span>
-            <span class="chip">OpenAI</span>
-            <span class="chip">FAISS / Pinecone</span>
-            <span class="chip">FastAPI</span>
-          </div>
-        </article>
-
-        <article class="panel">
-          <div class="card-kicker">
-            May 2020 – Dec 2022
-          </div>
-
-          <h3>Data Scientist</h3>
-
-          <p>
-            <b>Eversource / Accenture</b>
-          </p>
-
-          <p>
-            Developed predictive analytics for
-            customer order management, including
-            cancellation and fulfillment-risk models,
-            feature engineering, hyperparameter tuning,
-            model evaluation, and ML lifecycle automation.
-          </p>
-
-          <div class="chips">
-            <span class="chip">Scikit-learn</span>
-            <span class="chip">XGBoost</span>
-            <span class="chip">MLflow</span>
-            <span class="chip">Airflow</span>
-            <span class="chip">Docker</span>
-          </div>
-        </article>
-
-      </div>
-
-      <div class="panel" style="margin-top:18px">
-        <div class="card-kicker">
-          Education &amp; Certifications
-        </div>
-
-        <p>
-          <b>M.S. in Artificial Intelligence</b> —
-          Indiana Wesleyan University (2026–2027)
-        </p>
-
-        <p>
-          <b>Bachelor's Degree</b> —
-          G. Narayanamma Institute of Technology
-          and Science (2016–2020)
-        </p>
-
-        <p>
-          <b>Certifications:</b>
-          AI Fundamentals: Foundations for
-          Understanding AI; AWS Certified AI Practitioner
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- CONTACT SECTION -->
-  <section class="section" id="contact">
-    <div class="container career-contact">
-
-      <article class="panel">
-        <div class="card-kicker">
-          What I'm Building Toward
-        </div>
-
-        <h3>
-          AI that is useful, grounded, and dependable.
-        </h3>
-
-        <p>
-          I am building toward roles where I can design
-          and deliver intelligent applications that combine
-          machine learning, LLMs, retrieval, and enterprise
-          integration. I am particularly interested in
-          context-aware AI assistants, knowledge systems,
-          and agentic workflows, with careful attention
-          to evaluation and production reliability.
-        </p>
-      </article>
-
-      <article class="panel">
-        <div class="card-kicker">
-          Contact Me
-        </div>
-
-        <h3>Let's connect.</h3>
-
-        <div class="contact-list">
-
-          <div class="contact-row">
-            <b>Name</b>
-            <span>Soujanya Pasumarthi</span>
-          </div>
-
-          <div class="contact-row">
-            <b>Role</b>
-            <span>AI Engineer · Data Scientist</span>
-          </div>
-
-          <div class="contact-row">
-            <b>Email</b>
-            <a href="mailto:soujanyach2510@gmail.com">
-              soujanyach2510@gmail.com
-            </a>
-          </div>
-
-          <div class="contact-row">
-            <b>LinkedIn</b>
-            <a
-              href="https://www.linkedin.com/in/soujanya-pasumarthi"
-              target="_blank"
-              rel="noopener noreferrer">
-              linkedin.com/in/soujanya-pasumarthi
-            </a>
-          </div>
-
-          <div class="contact-row">
-            <b>GitHub</b>
-            <a
-              href="https://github.com/soujanyach2510"
-              target="_blank"
-              rel="noopener noreferrer">
-              github.com/soujanyach2510
-            </a>
-          </div>
-
-          <div class="contact-row">
-            <b>Focus</b>
-            <span>
-              ML · GenAI · RAG · Agentic AI
-            </span>
-          </div>
-
-        </div>
-      </article>
-
-    </div>
-  </section>
-
-</main>
-
-<!-- FOOTER -->
-<footer>
   <div class="container">
-    © 2026 Soujanya Pasumarthi ·
-    AI &amp; Analytics Portfolio
+    <nav class="nav">
+      <a class="brand" href="#">
+        <span>SP</span> / PORTFOLIO
+      </a>
+
+      <div class="navlinks">
+        <a href="#about">About</a>
+        <a href="#focus">Expertise</a>
+        <a href="#projects">View Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <div>
+        <div class="eyebrow">
+          <span class="dot"></span>
+          AI &amp; Analytics Portfolio
+        </div>
+
+        <h1>
+          Soujanya <span class="accent">Pasumarthi</span>
+        </h1>
+
+        <div class="role">
+          AI Engineer · Data Scientist · Generative AI
+        </div>
+
+        <p>
+          I build data-driven and AI-powered solutions that connect
+          enterprise knowledge, predictive insights, and intelligent
+          automation. My experience spans machine learning pipelines,
+          retrieval-augmented generation, semantic search, and AI
+          services designed for real business workflows.
+        </p>
+
+        <div class="actions">
+          <a class="btn primary" href="#projects">
+            Explore Projects ↘
+          </a>
+
+          <a class="btn" href="#contact">
+            Contact Me ↗
+          </a>
+        </div>
+      </div>
+
+      <aside class="profile-card">
+        <div class="card-kicker">Professional Snapshot</div>
+
+        <h3>From predictive models to AI knowledge systems.</h3>
+
+        <div class="fact">
+          <b>Professional Focus</b>
+          <span>
+            AI engineering, data science, ML pipelines,
+            and GenAI applications.
+          </span>
+        </div>
+
+        <div class="fact">
+          <b>Core Strengths</b>
+          <span>
+            Python · RAG · LLMs · Model evaluation · API development
+          </span>
+        </div>
+
+        <div class="fact">
+          <b>Current Learning</b>
+          <span>
+            M.S. in Artificial Intelligence,
+            Indiana Wesleyan University
+          </span>
+        </div>
+
+        <div class="fact">
+          <b>Career Direction</b>
+          <span>
+            Building reliable, useful, and scalable
+            intelligent systems.
+          </span>
+        </div>
+      </aside>
+    </header>
   </div>
-</footer>
+
+  <main>
+
+    <!-- ========================================
+         ABOUT SECTION
+    ========================================= -->
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">Professional Profile</div>
+          <h2>About Me</h2>
+          <p>
+            Connecting artificial intelligence, data science,
+            and enterprise engineering to solve practical problems.
+          </p>
+        </div>
+
+        <div class="two">
+          <article class="panel">
+            <div class="card-kicker">About Myself</div>
+
+            <h3>Engineering practical AI from data to deployment.</h3>
+
+            <p>
+              I am an AI Engineer and Data Scientist with experience
+              developing machine learning and generative AI solutions
+              for enterprise use cases. My work has included predictive
+              analytics for customer order management and a knowledge
+              platform that helps operations teams find critical
+              information in complex documentation.
+            </p>
+
+            <p>
+              I enjoy connecting technical implementation with a clear
+              user or business need—from preparing data and evaluating
+              models to building retrieval pipelines and exposing AI
+              capabilities through APIs. I am currently pursuing a
+              master's degree in Artificial Intelligence and continuing
+              to deepen my expertise in LLMs, agentic systems, and
+              intelligent applications.
+            </p>
+          </article>
+
+          <article class="panel value">
+            <div class="card-kicker">Personal Value Proposition</div>
+
+            <h3>Technical depth with a business-first mindset.</h3>
+
+            <p>
+              I bring together data science, retrieval-based AI, and
+              application engineering to turn information into usable
+              outcomes. I focus not only on building a model or
+              prototype, but also on evaluation, reliability,
+              integration, and how the solution supports real workflows.
+            </p>
+
+            <p>
+              <b>What makes my approach valuable:</b>
+              I can work across the AI lifecycle—from data preparation
+              and feature engineering to RAG, API delivery, and
+              production monitoring—while keeping the intended
+              business outcome in view.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================
+         TECHNICAL SKILLS
+    ========================================= -->
+
+    <section class="section" id="focus">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">Technical Focus</div>
+          <h2>Skills &amp; Focus Areas</h2>
+
+          <p>
+            A snapshot of the tools and methods reflected in my
+            professional experience and current AI learning.
+          </p>
+        </div>
+
+        <div class="skills">
+          <div class="skill">Python · SQL · PySpark</div>
+          <div class="skill">Scikit-learn · XGBoost</div>
+          <div class="skill">Random Forest · Gradient Boosting</div>
+          <div class="skill">PyTorch · TensorFlow</div>
+          <div class="skill">Hugging Face Transformers</div>
+          <div class="skill">LLMs · Prompt Engineering</div>
+          <div class="skill">RAG · LlamaIndex · LangChain</div>
+          <div class="skill">LangGraph · CrewAI</div>
+          <div class="skill">FAISS · Pinecone · ChromaDB</div>
+          <div class="skill">FastAPI · REST APIs</div>
+          <div class="skill">MLflow · Airflow</div>
+          <div class="skill">Docker · Kubernetes</div>
+          <div class="skill">AWS · Azure</div>
+          <div class="skill">Model Evaluation &amp; Drift</div>
+          <div class="skill">Semantic Search</div>
+          <div class="skill">Explainable AI · Responsible AI</div>
+          <div class="skill">Transfer Learning · Fine-Tuning</div>
+          <div class="skill">Model Selection · Benchmarking</div>
+          <div class="skill">SHAP · Grad-CAM · Integrated Gradients</div>
+          <div class="skill">NLP · Computer Vision · Tabular AI</div>
+          <div class="skill">Model Efficiency · Inference Optimization</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================
+         PROJECTS AND ACADEMIC ARTIFACTS
+    ========================================= -->
+
+    <section class="section projects" id="projects">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">Selected Work</div>
+          <h2>View Projects</h2>
+
+          <p>
+            Academic portfolio artifacts exploring machine learning
+            algorithms, neural-network components, large language
+            model training, Explainable AI, transfer learning, and
+            pre-trained model selection, supported by academic
+            research, visual explanations, and practical experiments.
+          </p>
+        </div>
+
+        <div class="project-grid">
+
+          <!-- ARTIFACT 1 -->
+
+          <article class="project featured">
+            <div class="project-top">
+              <div class="project-icon">✦</div>
+              <div class="tag">AIML-501 · Visual Artifact</div>
+            </div>
+
+            <h3>Types of Machine Learning Algorithms</h3>
+
+            <p>
+              A visual infographic comparing the main learning
+              approaches, 10 popular algorithms, how they work,
+              and where they are used in real-world applications.
+            </p>
+
+            <div class="chips">
+              <span class="chip">Supervised Learning</span>
+              <span class="chip">Unsupervised Learning</span>
+              <span class="chip">Deep Learning</span>
+              <span class="chip">Use Cases</span>
+            </div>
+
+            <div class="project-insights">
+              <div class="insight">
+                <b>Objective</b>
+                <span>
+                  Explain key machine learning algorithm types,
+                  how they work, and when to use them in a clear
+                  visual framework.
+                </span>
+              </div>
+
+              <div class="insight">
+                <b>Impact / Outcome</b>
+                <span>
+                  Make algorithm families easier to compare and
+                  connect each approach to practical applications
+                  across data, vision, language, and generative AI.
+                </span>
+              </div>
+
+              <div class="insight">
+                <b>Value Proposition</b>
+                <span>
+                  Give learners and practitioners a quick reference
+                  for understanding core methods and choosing an
+                  appropriate starting point for a problem.
+                </span>
+              </div>
+            </div>
+
+            <div class="project-footer">
+              <a class="btn primary"
+                 href="machine-learning-algorithms.png"
+                 target="_blank"
+                 rel="noopener noreferrer">
+                View Infographic ↗
+              </a>
+            </div>
+          </article>
+
+          <!-- ARTIFACT 2 -->
+
+          <article class="project featured">
+            <div class="project-top">
+              <div class="project-icon">◎</div>
+              <div class="tag">AIML-501 · Workshop 2.4</div>
+            </div>
+
+            <h3>Neural Network Components</h3>
+
+            <p>
+              A 12-slide academic presentation explaining
+              neural-network architecture, neurons, weights,
+              activation functions, loss functions, and optimization
+              through TensorFlow Playground experiments.
+            </p>
+
+            <div class="chips">
+              <span class="chip">Neural Networks</span>
+              <span class="chip">TensorFlow Playground</span>
+              <span class="chip">Activation Functions</span>
+              <span class="chip">Model Evaluation</span>
+            </div>
+
+            <div class="project-insights">
+              <div class="insight">
+                <b>Objective</b>
+                <span>
+                  Explain how neural-network components work
+                  together to learn classification patterns.
+                </span>
+              </div>
+
+              <div class="insight">
+                <b>Experiment</b>
+                <span>
+                  Explore circle and XOR datasets, feature
+                  representations, network configurations,
+                  activation functions, and noise.
+                </span>
+              </div>
+
+              <div class="insight">
+                <b>Key Learning</b>
+                <span>
+                  Interpret decision boundaries and training/test
+                  loss while recognizing the limits of individual
+                  exploratory runs.
+                </span>
+              </div>
+            </div>
+
+            <div class="project-footer">
+              <a class="btn primary"
+                 href="AIML501_Workshop_2.4_Neural_Network_Components.pdf"
+                 target="_blank"
+                 rel="noopener noreferrer">
+                View Presentation ↗
+              </a>
+            </div>
+          </article>
+
+          <!-- ARTIFACT 3 -->
+
+          <article class="project featured">
+            <div class="project-top">
+              <div class="project-icon">✧</div>
+              <div class="tag">AIML-501 · Workshop 3.4</div>
+            </div>
+
+            <h3>
+              Inside the Training of Generative AI Large Language Models
+            </h3>
+
+            <p>
+              An infographic exploring how large language models
+              are developed, the stages of training, and the
+              computational resources, energy, time, and financial
+              considerations involved. It compares publicly available
+              information about GPT-4, Claude, and Meta's Llama models.
+            </p>
+
+            <div class="chips">
+              <span class="chip">Generative AI</span>
+              <span class="chip">LLM Training</span>
+              <span class="chip">GPU Computing</span>
+              <span class="chip">Training Costs</span>
+              <span class="chip">Responsible AI</span>
+            </div>
+
+            <div class="project-insights">
+              <div class="insight">
+                <b>Objective</b>
+                <span>
+                  Explain the LLM training lifecycle in a clear,
+                  accessible visual format.
+                </span>
+              </div>
+
+              <div class="insight">
+                <b>Research Focus</b>
+                <span>
+                  Examine data requirements, computing infrastructure,
+                  energy consumption, training time, and estimated costs.
+                </span>
+              </div>
+
+              <div class="insight">
+                <b>Key Learning</b>
+                <span>
+                  Understand the resources required to train
+                  large-scale AI systems and distinguish public
+                  disclosures from industry estimates.
+                </span>
+              </div>
+            </div>
+
+            <div class="project-footer">
+              <a class="btn primary"
+                 href="AIML501_Workshop_3.4_LLM_Training_Infographic.png"
+                 target="_blank"
+                 rel="noopener noreferrer">
+                View Infographic ↗
+              </a>
+            </div>
+          </article>
+
+          <!-- ARTIFACT 4 -->
+
+          <article class="project featured">
+            <div class="project-top">
+              <div class="project-icon">◈</div>
+              <div class="tag">AIML-501 · Workshop 4.4</div>
+            </div>
+
+            <h3>
+              Explainable AI for Generative AI &amp; Large Language Models
+            </h3>
+
+            <p>
+              A research-informed infographic examining Explainable
+              AI (XAI), transparency, interpretability, validation
+              methods, and performance evaluation for generative AI
+              models such as GPT, Claude, Gemini, and Llama.
+            </p>
+
+            <p>
+              The artifact explores model complexity, hallucinations,
+              bias, explanation limitations, responsible AI governance,
+              and the importance of human oversight in healthcare.
+            </p>
+
+            <div class="chips">
+              <span class="chip">Explainable AI</span>
+              <span class="chip">Generative AI</span>
+              <span class="chip">LLM Interpretability</span>
+              <span class="chip">Model Validation</span>
+              <span class="chip">Performance Metrics</span>
+              <span class="chip">Responsible AI</span>
+            </div>
+
+            <div class="project-insights">
+              <div class="insight">
+                <b>Objective</b>
+                <span>
+                  Explain the importance of transparency and
+                  interpretability in large language models and
+                  identify the challenges involved in understanding
+                  AI-generated responses.
+                </span>
+              </div>
+
+              <div class="insight">
+                <b>Methods &amp; Evaluation</b>
+                <span>
+                  Explore SHAP, LIME, mechanistic interpretability,
+                  model cards, factual grounding, expert review,
+                  adversarial testing, and task-specific metrics.
+                </span>
+              </div>
+
+              <div class="insight">
+                <b>Key Learning</b>
+                <span>
+                  Explainability alone does not guarantee accuracy
+                  or fairness. Trustworthy AI requires ongoing
+                  validation, transparent documentation, responsible
+                  governance, and meaningful human oversight.
+                </span>
+              </div>
+            </div>
+
+            <div class="project-footer">
+              <a class="btn primary"
+                 href="AIML501_Workshop_4.4_Explainable_AI_Infographic.png"
+                 target="_blank"
+                 rel="noopener noreferrer">
+                View Infographic ↗
+              </a>
+            </div>
+          </article>
+
+          <!-- ========================================
+               ARTIFACT 5: WORKSHOP 5.4
+          ========================================= -->
+
+          <article class="project featured latest-artifact">
+            <div class="project-top">
+              <div class="project-icon">▦</div>
+              <div class="tag">AIML-501 · Workshop 5.4</div>
+            </div>
+
+            <h3>
+              Pre-Trained AI Model Selection:
+              Explainability, Performance &amp; Trade-Offs
+            </h3>
+
+            <div class="artifact-layout">
+
+              <!-- ARTIFACT DESCRIPTION -->
+
+              <div class="artifact-details">
+                <p>
+                  A research-based visual decision matrix comparing
+                  five pre-trained AI models across Natural Language
+                  Processing, Computer Vision, and Tabular Data:
+                  BERT, DistilBERT, MobileNetV2, EfficientNet-B0,
+                  and TabPFN v2.
+                </p>
+
+                <p>
+                  The artifact evaluates model size, benchmark
+                  performance, inference speed, computational
+                  requirements, and explainability techniques to
+                  support informed model selection for real-world
+                  AI applications.
+                </p>
+
+                <p>
+                  The analysis demonstrates how application-specific
+                  requirements influence model selection and why
+                  predictive performance must be evaluated alongside
+                  resource constraints, explanation reliability,
+                  fairness, and responsible deployment considerations.
+                </p>
+
+                <div class="chips">
+                  <span class="chip">Pre-Trained Models</span>
+                  <span class="chip">Transfer Learning</span>
+                  <span class="chip">Model Selection</span>
+                  <span class="chip">NLP</span>
+                  <span class="chip">Computer Vision</span>
+                  <span class="chip">Tabular AI</span>
+                  <span class="chip">Decision Matrix</span>
+                  <span class="chip">Explainable AI</span>
+                  <span class="chip">Performance Benchmarking</span>
+                  <span class="chip">Responsible AI</span>
+                </div>
+              </div>
+
+              <!-- INFOGRAPHIC IMAGE -->
+
+              <figure class="artifact-preview">
+                <a href="AIML501_Workshop_5.4_Pretrained_Model_Selection_Infographic.png"
+                   target="_blank"
+                   rel="noopener noreferrer">
+
+                  <img
+                    src="AIML501_Workshop_5.4_Pretrained_Model_Selection_Infographic.png"
+                    alt="Pre-trained AI model selection decision matrix comparing BERT, DistilBERT, MobileNetV2, EfficientNet-B0, and TabPFN v2 across model size, benchmark performance, inference speed, explainability, and application suitability."
+                    loading="lazy"
+                  >
+                </a>
+
+                <figcaption class="artifact-caption">
+                  Workshop 5.4 — Pre-Trained AI Model Selection
+                  Decision Matrix.
+                </figcaption>
+
+                <a class="btn primary"
+                   href="AIML501_Workshop_5.4_Pretrained_Model_Selection_Infographic.png"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                  View Full Infographic ↗
+                </a>
+              </figure>
+            </div>
+
+            <!-- ARTIFACT ANALYSIS -->
+
+            <div class="project-insights">
+              <div class="insight">
+                <b>Objective</b>
+                <span>
+                  Develop a structured decision matrix to evaluate
+                  pre-trained models based on model size, predictive
+                  performance, inference efficiency, interpretability,
+                  and application-specific requirements.
+                </span>
+              </div>
+
+              <div class="insight">
+                <b>Research &amp; Methodology</b>
+                <span>
+                  Compare five representative models using academic
+                  research and model documentation. Examine parameter
+                  counts, task-specific benchmarks, computational
+                  constraints, SHAP, Integrated Gradients, and Grad-CAM.
+                </span>
+              </div>
+
+              <div class="insight">
+                <b>Technical Analysis</b>
+                <span>
+                  Evaluate trade-offs between model complexity,
+                  accuracy, inference latency, resource consumption,
+                  and explanation reliability. Recognize that benchmarks
+                  from different domains cannot be directly compared.
+                </span>
+              </div>
+
+              <div class="insight">
+                <b>Practical Application</b>
+                <span>
+                  Illustrate how TabPFN v2 could support healthcare
+                  claims anomaly detection, with independent validation,
+                  feature attribution, fairness evaluation, and human
+                  auditor oversight.
+                </span>
+              </div>
+
+              <div class="insight">
+                <b>Research Challenges</b>
+                <span>
+                  Address differences in benchmark datasets, hardware
+                  configurations, inference environments, and explanation
+                  fidelity. Published performance does not guarantee
+                  equivalent results in production.
+                </span>
+              </div>
+
+              <div class="insight">
+                <b>Key Learning</b>
+                <span>
+                  No single model is optimal for every application.
+                  Effective model selection requires balancing business
+                  objectives, predictive quality, computational resources,
+                  explainability, privacy, and responsible deployment.
+                </span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================
+         PROFESSIONAL EXPERIENCE
+    ========================================= -->
+
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">Professional Snapshot</div>
+          <h2>Experience &amp; Education</h2>
+
+          <p>
+            Selected professional experience, academic qualifications,
+            and certifications.
+          </p>
+        </div>
+
+        <div class="two">
+          <article class="panel">
+            <div class="card-kicker">Jan 2023 – May 2025</div>
+
+            <h3>Generative AI Engineer</h3>
+
+            <p>
+              <b>International SOS / Accenture</b>
+            </p>
+
+            <p>
+              Worked on an AI knowledge platform for emergency
+              response, including RAG pipelines, document ingestion,
+              semantic retrieval, prompt engineering, LLM-powered
+              APIs, retrieval evaluation, and service monitoring.
+            </p>
+
+            <div class="chips">
+              <span class="chip">LlamaIndex</span>
+              <span class="chip">LangChain</span>
+              <span class="chip">OpenAI</span>
+              <span class="chip">FAISS / Pinecone</span>
+              <span class="chip">FastAPI</span>
+            </div>
+          </article>
+
+          <article class="panel">
+            <div class="card-kicker">May 2020 – Dec 2022</div>
+
+            <h3>Data Scientist</h3>
+
+            <p>
+              <b>Eversource / Accenture</b>
+            </p>
+
+            <p>
+              Developed predictive analytics for customer order
+              management, including cancellation and fulfillment-risk
+              models, feature engineering, hyperparameter tuning,
+              model evaluation, and ML lifecycle automation.
+            </p>
+
+            <div class="chips">
+              <span class="chip">Scikit-learn</span>
+              <span class="chip">XGBoost</span>
+              <span class="chip">MLflow</span>
+              <span class="chip">Airflow</span>
+              <span class="chip">Docker</span>
+            </div>
+          </article>
+        </div>
+
+        <article class="panel education">
+          <div class="card-kicker">Education &amp; Certifications</div>
+
+          <p>
+            <b>M.S. in Artificial Intelligence</b> —
+            Indiana Wesleyan University (2026–2027)
+          </p>
+
+          <p>
+            <b>Bachelor's Degree</b> —
+            G. Narayanamma Institute of Technology and Science
+            (2016–2020)
+          </p>
+
+          <p>
+            <b>Certifications:</b>
+            AI Fundamentals: Foundations for Understanding AI;
+            AWS Certified AI Practitioner.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ========================================
+         CONTACT SECTION
+    ========================================= -->
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">Professional Connections</div>
+          <h2>Let's Connect</h2>
+
+          <p>
+            Interested in artificial intelligence, machine learning,
+            generative AI, and enterprise innovation.
+          </p>
+        </div>
+
+        <div class="career-contact">
+          <article class="panel">
+            <div class="card-kicker">What I'm Building Toward</div>
+
+            <h3>AI that is useful, grounded, and dependable.</h3>
+
+            <p>
+              I am building toward roles where I can design and
+              deliver intelligent applications that combine machine
+              learning, LLMs, retrieval, and enterprise integration.
+            </p>
+
+            <p>
+              I am particularly interested in context-aware AI
+              assistants, knowledge systems, and agentic workflows,
+              with careful attention to evaluation and production
+              reliability.
+            </p>
+          </article>
+
+          <article class="panel">
+            <div class="card-kicker">Contact Me</div>
+
+            <h3>Professional Contact Information</h3>
+
+            <div class="contact-list">
+              <div class="contact-row">
+                <b>Name</b>
+                <span>Soujanya Pasumarthi</span>
+              </div>
+
+              <div class="contact-row">
+                <b>Role</b>
+                <span>AI Engineer · Data Scientist</span>
+              </div>
+
+              <div class="contact-row">
+                <b>Email</b>
+                <a href="mailto:soujanyach2510@gmail.com">
+                  soujanyach2510@gmail.com
+                </a>
+              </div>
+
+              <div class="contact-row">
+                <b>LinkedIn</b>
+                <a href="https://www.linkedin.com/in/soujanya-pasumarthi"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                  linkedin.com/in/soujanya-pasumarthi
+                </a>
+              </div>
+
+              <div class="contact-row">
+                <b>GitHub</b>
+                <a href="https://github.com/soujanyach2510"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                  github.com/soujanyach2510
+                </a>
+              </div>
+
+              <div class="contact-row">
+                <b>Focus</b>
+                <span>ML · GenAI · RAG · Agentic AI</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================
+       FOOTER
+  ========================================= -->
+
+  <footer>
+    <div class="container">
+      © 2026 Soujanya Pasumarthi · AI &amp; Analytics Portfolio
+    </div>
+  </footer>
 
 </body>
 </html>
